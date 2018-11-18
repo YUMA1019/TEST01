@@ -20,27 +20,26 @@ import seaborn as sns
 import sys
 import warnings
 #commonクラス活用可能状況に
-sys.path.append("../../common_python/")
-from common import Common
+
+sys.path.append("/home/ec2-user/environment")
+from Common.common import Common
 
 warnings.filterwarnings('ignore') # 実行上問題ない注意は非表示にします
 
-get_ipython().run_line_magic('matplotlib', 'inline')
+#get_ipython().run_line_magic('matplotlib', 'inline')
 
 
 # In[3]:
 
 
 # dataフォルダの場所を、各自指定してください
-data_dir = "../data/"
+#data_dir = "../data/"
 
 
 # In[4]:
 
-
 # FXデータの読み込み
-data = pd.read_csv(data_dir + "USDJPY_1997_2017.csv")
-
+data = pd.read_csv("//home/ec2-user/environment/Common/USDJPY_1997_2017.csv")
 
 # In[5]:
 
@@ -65,7 +64,7 @@ data17.head()
 
 
 # 2016年の合計を計算する
-# 前々日終値に比べて前日終値が高い場合は、買い、低い場合は売りで入ります
+# 前々日終値に比べて前日終値が高い場合は、買い、���い場合は売りで入ります
 sum_2016 = 0
 for i in range(2,len(data16)): # len()で要素数を取得しています
     if data16.iloc[i-2,4] <= data16.iloc[i-1,4]:
